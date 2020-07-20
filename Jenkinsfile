@@ -1,11 +1,9 @@
 pipeline {
-    agent {
-        docker { image 'node:14-alpine' }
-    }
+    agent docker
     stages {
-        stage('Test') {
+        stage('Build grid') {
             steps {
-                sh 'node --version'
+                sh 'docker-compose up'
             }
         }
     }
