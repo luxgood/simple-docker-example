@@ -8,5 +8,17 @@ pipeline {
                 sh 'docker-compose up'
             }
         }
+
+        stage('Integration tests') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+
+        stage('Kill grid') {
+            steps {
+                sh 'docker-compose down'
+            }
+        }
     }
 }
