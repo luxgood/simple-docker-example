@@ -8,17 +8,18 @@ pipeline {
             }
             stage('Two'){
                 steps{
-                    input('Do you want to prroceed?')
+                    docker{
+                        docker container ls -a
+                    }
                 }
             }
-            stage('Three'){
-                when{
-                    not{
-                        branch "master"
-                    }
+            stage('With docker'){
+                agent{
+                    docker
                 }
                 steps{
                     echo "Hello"
+                    docker-compose up
                 }
             }
         }
