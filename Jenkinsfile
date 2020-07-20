@@ -6,21 +6,23 @@ pipeline {
                     echo 'Hello there in step One of Stage One'
                 }
             }
+            stage('Two'){
+                steps{
+                    input('Do you want to prroceed?')
+                }
+            }
+            stage('Three'){
+                when{
+                    not{
+                        branch "master"
+                    }
+                    sterps{
+                        echo "Hello"
+                    }
+                }
+            }
         }
 
-        stage('Two'){
-            steps{
-                input('Do you want to prroceed?')
-            }
-        }
-    stage('Three'){
-        when{
-            not{
-                branch "master"
-            }
-            sterps{
-                echo "Hello"
-            }
-        }
-    }
+
+
 }
