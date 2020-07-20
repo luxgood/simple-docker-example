@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker
+        label 'docker'
     }
     stages {
         stage('Build grid') {
