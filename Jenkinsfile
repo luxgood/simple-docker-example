@@ -3,8 +3,7 @@ pipeline {
         label 'docker'
     }
     stages {
-
-        parallel{
+        parallel {
             stage('Unit Tests') {
                 steps {
                     echo 'Unit tests...'
