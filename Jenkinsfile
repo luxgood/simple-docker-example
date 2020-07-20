@@ -3,20 +3,17 @@ pipeline {
         label 'docker'
     }
     stages {
-        stage('Zero') {
-            steps {
-                echo 'Stage 0'
-            }
-        }
-        parallel {
-            stage('Unit Tests') {
-                steps {
-                    echo 'Unit tests...'
+        stage('ParallelStage'){
+            parallel {
+                stage('Unit Tests stage') {
+                    steps {
+                        echo 'Unit tests...'
+                    }
                 }
-            }
-            stage('Integration tests') {
-                steps {
-                    echo 'Integration tests...'
+                stage('Integration tests stage') {
+                    steps {
+                        echo 'Integration tests...'
+                    }
                 }
             }
         }
