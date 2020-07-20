@@ -3,22 +3,19 @@ pipeline {
         label 'docker'
     }
     stages {
-        stage('Build grid') {
-            steps {
-                sh 'docker-compose up'
+
+        parallel{
+            stage('Unit Tests') {
+                steps {
+                    echo 'Unit tests...'
+                }
+            }
+            stage('Integration tests') {
+                steps {
+                    echo 'Integration tests...'
+                }
             }
         }
 
-        stage('Integration tests') {
-            steps {
-                echo 'Testing...'
-            }
-        }
-
-        stage('Kill grid') {
-            steps {
-                sh 'docker-compose down'
-            }
-        }
     }
 }
