@@ -16,7 +16,7 @@ pipeline {
                     not{
                         branch "master"
                     }
-                    sterps{
+                    steps{
                         echo "Hello"
                     }
                 }
