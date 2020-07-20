@@ -19,7 +19,7 @@ pipeline {
                 }
                 steps{
                     echo "Hello"
-                    docker-compose up
+                    docker docker-compose up
                 }
             }
         }
